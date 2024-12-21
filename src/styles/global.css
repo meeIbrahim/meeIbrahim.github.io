@@ -1,5 +1,5 @@
 html.dark {
-  background-color: #0d0950;
+  background-color: #1d1e20;
   color: #dadadb;
 }
 
@@ -11,10 +11,12 @@ html {
     background-color: #f1f5f9;
     font-family: sans-serif;
     line-height: 1.5;
-    color: #d3d3d3;
-    background: linear-gradient(45deg, #0a0a23, #1c1c30, #272730, #111111);
-    background-size: 400% 400%;
-    animation: gradientAnimation 10s ease infinite;
+    color: #1e1e1e;
+
+  }
+
+  .title {
+    
   }
   
   body {
@@ -43,30 +45,6 @@ html {
     grid-area: content;
   }
 
-  .footer {
-    grid-area: footer;
-    justify-content: space-around;
-    position: fixed;
-    bottom: 0;
-    width: 100%;
-    background-color: rgba(39, 39, 48, 0.9); /* Semi-transparent background for floating effect */
-    box-shadow: 0 0 10px rgba(0, 0, 0, 0.5); /* Shadow for floating effect */
-    padding: 1rem;
-    z-index: 1000;
-  }
-  
-  @keyframes gradientAnimation {
-    0% {
-      background-position: 0% 50%;
-    }
-    50% {
-      background-position: 100% 50%;
-    }
-    100% {
-      background-position: 0% 50%;
-    }
-  }
-  
   * {
     box-sizing: border-box;
   }
@@ -88,7 +66,6 @@ html {
     width: 40px;
     height: 5px;
     margin-bottom: 10px;
-    background-color: #ff9776;
   }
   
 
@@ -97,7 +74,6 @@ html {
     width: 100%;
     top: 5rem;
     left: 48px;
-    background-color: #ff9776;
     display: none;
     margin: 0;
   }
@@ -122,9 +98,7 @@ html {
     display: unset;
   }
   
-  .title {
 
-  }
   @media screen and (min-width: 636px) {
     .nav-links {
       margin-left: 5em;
@@ -137,7 +111,7 @@ html {
     .nav-links a {
       display: inline-block;
       padding: 15px 20px;
-      color: #D3D3D3;
+      color: #1e1e1e;
     }
 
     .hamburger {
