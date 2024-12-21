@@ -1,10 +1,10 @@
 html.dark {
   background-color: #0d0950;
-  color: white;
+  color: #dadadb;
 }
 
 .dark .nav-links a {
-  color: white;
+  color: #dadadb;
 }
 
 html {
@@ -18,13 +18,12 @@ html {
   }
   
   body {
-    margin: 0 auto;
     width: 100%;
-    max-width: 80ch;
     height: 100vh;
     padding: 1rem;
     line-height: 1.5;
     display: grid;
+    grid-template-rows: auto 1fr auto;
     grid-template-areas: 
     "header"
     "content"
@@ -32,10 +31,12 @@ html {
     gap: 2em;
   }
 
+  .centered {
+    margin: 0 auto; /* margin-left auto and margin-right auto */
+  }
+
   .header {
     grid-area: header;
-    justify-content: space-between;
-    align-items: center;
   }
 
   .content {
@@ -45,6 +46,13 @@ html {
   .footer {
     grid-area: footer;
     justify-content: space-around;
+    position: fixed;
+    bottom: 0;
+    width: 100%;
+    background-color: rgba(39, 39, 48, 0.9); /* Semi-transparent background for floating effect */
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.5); /* Shadow for floating effect */
+    padding: 1rem;
+    z-index: 1000;
   }
   
   @keyframes gradientAnimation {
@@ -83,52 +91,7 @@ html {
     background-color: #ff9776;
   }
   
-  .nav-links {
-    width: 100%;
-    top: 5rem;
-    left: 48px;
-    background-color: #ff9776;
-    display: none;
-    margin: 0;
-    color: #D3D3D3;
-  }
-  
-  .nav-links a {
-    display: block;
-    text-align: center;
-    padding: 10px 0;
-    text-decoration: none;
-    font-size: 1.2rem;
-    font-weight: bold;
-    text-transform: uppercase;
-  }
-  
-  .nav-links a:hover, a:focus {
-    background-color: #ff9776;
-  }
-  
-  .expanded {
-    display: unset;
-  }
-  
-  @media screen and (min-width: 636px) {
-    .nav-links {
-      margin-left: 5em;
-      display: block;
-      position: static;
-      width: auto;
-      background: none;
-    }
-  
-    .nav-links a {
-      display: inline-block;
-      padding: 15px 20px;
-    }
-  
-    .hamburger {
-      display: none;
-    }
-  }
+
 
 .nav-links {
     width: 100%;
@@ -159,6 +122,9 @@ html {
     display: unset;
   }
   
+  .title {
+
+  }
   @media screen and (min-width: 636px) {
     .nav-links {
       margin-left: 5em;
