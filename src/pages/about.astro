@@ -1,35 +1,109 @@
 ---
 const pageTitle = "About Me";
-const identity = {
-  firstName: "Ibrahim",
-  country: "Pakistan",
-  occupation: "Technical Writer",
-  hobbies: ["photography", "birdwatching", "baseball"],
-};
-const skills = ["HTML", "CSS", "JavaScript", "React", "Astro", "Writing Docs"];
-import '../styles/global.css';
-import BaseLayout from '../layouts/BaseLayout.astro';
+import "../styles/global.css";
+import BaseLayout from "../layouts/BaseLayout.astro";
+const technologyStack = [
+  { category: "Languages", technologies: ["JavaScript", "Python", "Java"] }, // Languages I am proficient in
+  { category: "Frontend", technologies: ["React", "Vue", "Angular"] }, // Frontend tools and frameworks
+  { category: "Backend", technologies: ["Node.js", "Express", "Django"] }, // Backend tools and frameworks
+  { category: "Testing", technologies: ["Jest", "Mocha", "Cypress"] }, // Testing tools
+  { category: "Cloud", technologies: ["AWS", "Azure", "Google Cloud"] }, // Cloud providers
+  { category: "Cloud Infrastructure", technologies: ["Kubernetes", "Docker"] }, // Containerization and orchestration tools
+  {
+    category: "Infrastructure as Code",
+    technologies: ["Terraform", "Ansible"],
+  }, // Infrastructure as Code tools
+  { category: "Monitoring", technologies: ["Prometheus"] }, // Monitoring tools
+  { category: "CI/CD", technologies: ["Jenkins", "GitHub Actions"] }, // CI/CD tools
+  { category: "Shell", technologies: ["Bash", "Zsh"] }, // Shell scripting languages
+  { category: "Miscellaneous", technologies: ["Git"] }, // Miscellaneous tools
+];
 ---
+
 <html lang="en">
   <BaseLayout pageTitle={pageTitle}>
-  <body>
-    <h2>... and my new Astro site!</h2>
+    <body>
+      <h2>Hi there 👋 I am Muhammad Ibrahim</h2>
 
-    <p>I am working through Astro's introductory tutorial. This is the second page on my website, and it's the first one I built myself!</p>
-
-    <p>This site will update as I complete more of the tutorial, so keep checking back and see how my journey is going!</p>
-    <p>Here are a few facts about me:</p>
-<ul>
-  <li>My name is {identity.firstName}.</li>
-  <li>I live in {identity.country} and I work as a {identity.occupation}.</li>
-  {identity.hobbies.length >= 2 &&
-    <li>Two of my hobbies are: {identity.hobbies[0]} and {identity.hobbies[1]}</li>
-  }
-</ul>
-<p>My skills are:</p>
-<ul>
-  {skills.map((skill) => <li>{skill}</li>)}
-</ul>
-  </body>
-  </BaseLayout> 
+      <p>
+        I am currently working as Software Development Engineer in Test at <a
+          class="emumba-link"
+          href="https://emumba.com/">Emumba</a
+        >
+      </p>
+      <p>
+        My journey began as an Electrical Engineer, but my love for software
+        engineering inspired me to switch fields Over the years, I've honed my
+        skills by working on a variety of challenging projects and collaborating
+        with talented individuals.
+      </p>
+      <p>
+        Through my blog, 'Write to Learn,' I document my learning journey, share
+        insights, and showcase the projects that helped me grow as a
+        professional.
+      </p>
+      <h2>Technology Stack</h2>
+      <table class="tech-stack-table">
+        <thead>
+          <tr>
+            <th>Services</th>
+            <th>Technologies</th>
+          </tr>
+        </thead>
+        <tbody>
+          {
+            technologyStack.map((tech) => (
+              <tr>
+                <td class="left-align">{tech.category}</td> {/* Category name */}
+                <td>{tech.technologies.join(", ")}</td>{" "}
+                {/* Technologies list */}
+              </tr>
+            ))
+          }
+        </tbody>
+      </table>
+      <h2>About the Blog</h2>
+      <h2>Contact Me</h2>
+    </body>
+  </BaseLayout>
 </html>
+<style>
+  .emumba-link {
+    color: #0077b5;
+  }
+
+  .tech-stack-table {
+    width: 100%;
+    border-collapse: collapse;
+    margin: 20px 0;
+    font-size: 18px;
+    text-align: center;
+  }
+
+  .tech-stack-table th,
+  .tech-stack-table td {
+    padding: 7px 5px;
+  }
+
+  .tech-stack-table thead tr {
+    border-top:2px solid #0077b5;
+    background-color: #bcb8b85b;
+    text-align: center;
+  }
+
+  .dark .tech-stack-table thead tr {
+    border-top:2px solid #bec9cf;
+    background-color: #4f48485b;
+    text-align: center;
+  }
+
+  .left-align {
+    text-align: left;
+  }
+  .tech-stack-table tbody tr:last-of-type {
+    border-bottom: 2px solid #0077b5;
+  }
+  .dark .tech-stack-table tbody tr:last-of-type {
+    border-bottom: 2px solid #bec9cf;
+  }
+</style>
