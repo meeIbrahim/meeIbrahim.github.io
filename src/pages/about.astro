@@ -3,25 +3,51 @@ const pageTitle = "About Me";
 import "../styles/global.css";
 import BaseLayout from "../layouts/BaseLayout.astro";
 const technologyStack = [
-  { category: "Languages", technologies: ["JavaScript", "Python", "Java"] }, // Languages I am proficient in
-  { category: "Frontend", technologies: ["React", "Vue", "Angular"] }, // Frontend tools and frameworks
+  { category: "Languages", technologies: ["Java", "Rust", "GoLang", "Lua"] }, // Languages I am proficient in
+  { category: "Frontend", technologies: ["React", "AstroJS", "Tailwind"] }, // Frontend tools and frameworks
   { category: "Backend", technologies: ["Node.js", "Express", "Django"] }, // Backend tools and frameworks
-  { category: "Testing", technologies: ["Jest", "Mocha", "Cypress"] }, // Testing tools
+  { category: "Testing", technologies: ["Selenium", "Cucumber BDD", "Cypress","Postman","RestAssured"] }, // Testing tools
   { category: "Cloud", technologies: ["AWS", "Azure", "Google Cloud"] }, // Cloud providers
-  { category: "Cloud Infrastructure", technologies: ["Kubernetes", "Docker"] }, // Containerization and orchestration tools
+  { category: "Cloud Infrastructure", technologies: ["Kubernetes", "Docker", "Podman"] }, // Containerization and orchestration tools
   {
     category: "Infrastructure as Code",
     technologies: ["Terraform", "Ansible"],
   }, // Infrastructure as Code tools
   { category: "Monitoring", technologies: ["Prometheus"] }, // Monitoring tools
   { category: "CI/CD", technologies: ["Jenkins", "GitHub Actions"] }, // CI/CD tools
-  { category: "Shell", technologies: ["Bash", "Zsh"] }, // Shell scripting languages
+  { category: "Shell", technologies: ["Bash", "Zsh", "PowerShell"] }, // Shell scripting languages
   { category: "Miscellaneous", technologies: ["Git"] }, // Miscellaneous tools
+];
+const contactMe = [
+  {
+    platform: "GitHub",
+    link: "https://github.com/meeIbrahim",
+    icon: "fab fa-github",
+    text: "meeIbrahim",
+  },
+  {
+    platform: "LinkedIn",
+    link: "https://www.linkedin.com/in/chmibrahim/",
+    icon: "fab fa-linkedin",
+    text: "chmibrahim",
+  },
+  {
+    platform: "Gmail",
+    link: "mailto:chaudry.mibrahim@gmail.com",
+    icon: "fas fa-envelope",
+    text: "chaudry.mibrahim@gmail.com",
+  },
 ];
 ---
 
 <html lang="en">
   <BaseLayout pageTitle={pageTitle}>
+    <head>
+      <link
+        href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css"
+        rel="stylesheet"
+      />
+    </head>
     <body>
       <h2>Hi there 👋 I am Muhammad Ibrahim</h2>
 
@@ -43,6 +69,9 @@ const technologyStack = [
         professional.
       </p>
       <h2>Technology Stack</h2>
+      <p>
+        Here are some of the technologies I've worked with over the years:
+      </p>
       <table class="tech-stack-table">
         <thead>
           <tr>
@@ -54,7 +83,8 @@ const technologyStack = [
           {
             technologyStack.map((tech) => (
               <tr>
-                <td class="left-align">{tech.category}</td> {/* Category name */}
+                <td class="left-align">{tech.category}</td>{" "}
+                {/* Category name */}
                 <td>{tech.technologies.join(", ")}</td>{" "}
                 {/* Technologies list */}
               </tr>
@@ -62,8 +92,18 @@ const technologyStack = [
           }
         </tbody>
       </table>
-      <h2>About the Blog</h2>
       <h2>Contact Me</h2>
+      <ul>
+        {
+          contactMe.map((contact) => (
+            <li>
+              <a href={contact.link} target="_blank" rel="noopener noreferrer">
+                <i class={contact.icon} /> {contact.text}
+              </a>
+            </li>
+          ))
+        }
+      </ul>
     </body>
   </BaseLayout>
 </html>
@@ -82,17 +122,18 @@ const technologyStack = [
 
   .tech-stack-table th,
   .tech-stack-table td {
-    padding: 7px 5px;
+    padding: 7px 15px;
+    white-space: normal;
   }
 
   .tech-stack-table thead tr {
-    border-top:2px solid #0077b5;
+    border-top: 2px solid #0077b5;
     background-color: #bcb8b85b;
     text-align: center;
   }
 
   .dark .tech-stack-table thead tr {
-    border-top:2px solid #bec9cf;
+    border-top: 2px solid #bec9cf;
     background-color: #4f48485b;
     text-align: center;
   }
@@ -105,5 +146,25 @@ const technologyStack = [
   }
   .dark .tech-stack-table tbody tr:last-of-type {
     border-bottom: 2px solid #bec9cf;
+  }
+  ul {
+    list-style-type: none;
+    padding: 0;
+  }
+
+  ul li {
+    margin: 5px 0;
+  }
+
+  ul li a:hover {
+    text-decoration: underline;
+  }
+
+  ul li i {
+    margin-right: 8px; /* Add space between icon and text */
+  }
+  ul li a {
+    color: #0077b5;
+    text-decoration: none;
   }
 </style>
