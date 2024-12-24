@@ -2,14 +2,13 @@
 import Social from './Social.astro';
 ---
 <style>
-  footer {
-    display: flex;
-    gap: 1rem;
-    margin-top: 2rem;
+  .license-link {
+    color: #00539F;
   }
 </style>
 <footer class="footer">
-  <Social platform="twitter" username="astrodotbuild" />
-  <Social platform="github" username="withastro" />
-  <Social platform="youtube" username="astrodotbuild" />
+  <section class="license">
+    <p>&copy; Content Hosted is Licensed Under</p>
+    <p><a class="license-link" href="https://creativecommons.org/licenses/by-sa/4.0/" target="_blank">CC BY-SA 4.0</a></p>
+  </section>
 </footer>
