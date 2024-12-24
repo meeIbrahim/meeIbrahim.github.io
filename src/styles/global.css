@@ -6,6 +6,13 @@ html.dark {
 .dark .nav-links a {
   color: #dadadb;
 }
+/* Title Text color */
+.dark .title a {
+  color: #dadadb;
+}
+.title a {
+  color: #1e1e1e;
+}
 
 html {
   background-color: #f1f5f9;

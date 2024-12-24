@@ -3,6 +3,7 @@ import BaseLayout from "../../layouts/BaseLayout.astro";
 import BlogPost from "../../components/BlogPost.astro";
 import type { Props } from "astro/components/ViewTransitions.astro";
 import type { MarkdownInstance } from "astro";
+import BlogContainer from "../../components/BlogContainer.astro";
 export async function getStaticPaths() {
     /*
     A getStaticPaths function should always return a list of objects containing params
@@ -32,11 +33,5 @@ const { posts } = Astro.props as {
 
 <BaseLayout pageTitle={tag}>
     <p>Posts tagged with {tag}</p>
-    <ul>
-        {
-            posts.map((post) => (
-                <BlogPost url={post.url} title={post.frontmatter.title} />
-            ))
-        }
-    </ul>
+    <BlogContainer posts={posts} />
 </BaseLayout>

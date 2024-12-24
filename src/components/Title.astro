@@ -3,9 +3,16 @@ const { class: className, ...rest } = Astro.props;
 import ThemeIcon from "./ThemeIcon.astro";
 ---
 
-<div class = {className} {...rest}  >
-<div>
-    <h2>Muhammad Ibrahim</h2>
+<div class={className} {...rest}>
+    <div>
+        <h2><a href="/">Muhammad Ibrahim</a></h2>
+    </div>
+    <ThemeIcon class="theme-icon" />
 </div>
-<ThemeIcon class="theme-icon" />
-</div>
+
+<style>
+    h2 a:link {
+        text-decoration: none;
+        color: inherit; /* Inherit the color from the parent element */
+    }
+</style>

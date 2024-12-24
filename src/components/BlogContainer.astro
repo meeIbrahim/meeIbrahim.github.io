@@ -1,0 +1,25 @@
+---
+import '../styles/global.css';
+import BlogPost from '../components/BlogPost.astro';
+import type { MarkdownInstance } from "astro";
+const { posts } = Astro.props as {
+    posts: MarkdownInstance<Record<string, any>>[];
+};
+---
+<html lang="en">
+    <ul>
+       {posts.map((post) => <BlogPost url={post.url} title={post.frontmatter.title} description={post.frontmatter.description} pubDate={post.frontmatter.pubDate} tags={post.frontmatter.tags}></BlogPost>)}
+    </ul>
+  </body>
+</html>
+<style>
+    ul {
+        ;
+    }
+    li {
+        margin-bottom: 1rem;
+    }
+    li:last-child {
+        margin-bottom: 0;
+    }
+</style>
