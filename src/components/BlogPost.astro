@@ -1,17 +1,65 @@
 ---
-const { class: className, title, url,description, pubDate, ...rest } = Astro.props;
+const {
+    class: className,
+    title,
+    url,
+    description,
+    pubDate,
+    tags,
+    ...rest
+} = Astro.props;
 ---
 
 <li id="container">
     <a href={url}>
-    <span>{title}</span>
-    <div class="description">{description}</div>
-    <div class="date">{new Date(pubDate).toLocaleDateString('en-US', { day: 'numeric', month: 'long', year: 'numeric' })}</div>
+        <span>{title}</span>
+        <div class="description">{description}</div>
+        <div class="date">
+            {
+                new Date(pubDate).toLocaleDateString("en-US", {
+                    day: "numeric",
+                    month: "long",
+                    year: "numeric",
+                })
+            }
+        </div>
+        <ul class="tags">
+            {
+                tags.flatMap((tag: string) => (
+                    <li>
+                        <a href={`/tags/${tag}`}>{tag}</a>
+                    </li>
+                ))
+            }
+        </ul>
     </a>
 </li>
 
 <style>
+    .tags {
+        display: flex;
+        scale: 0.9;
+        flex-wrap: wrap;
+        gap: 0.5rem;
+        list-style-type: none;
+        padding: 0;
+        margin: 0;
+    }
+    .tags li {
+        text-size-adjust: smaller;
+        border: 1px solid #3f3e3e;
+        padding: 2px 5px;
+        border-radius: 10px;
+    }
+    .tags li:hover,
+    .tags li:focus {
+        background-color: #1d1e204a;
+    }
 
+    :global(.dark) .tags li:hover,
+    :global(.dark) .tags li:focus {
+        background-color: #ecd8b6;
+    }
     #container .description,
     #container .date {
         color: #1d1d1d;
@@ -26,7 +74,7 @@ const { class: className, title, url,description, pubDate, ...rest } = Astro.pro
         text-decoration: none;
     }
     #container a {
-        color: #00539F;
+        color: #00539f;
     }
     #container {
         list-style-type: none;
@@ -49,7 +97,7 @@ const { class: className, title, url,description, pubDate, ...rest } = Astro.pro
         background-color: #ede4d4;
         scale: 1.1;
     }
-    
+
     :global(.dark) #container {
         background-color: #d4d4d4dd;
     }

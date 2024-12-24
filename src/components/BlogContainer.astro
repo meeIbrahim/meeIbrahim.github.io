@@ -8,7 +8,7 @@ const { posts } = Astro.props as {
 ---
 <html lang="en">
     <ul>
-       {posts.map((post) => <BlogPost url={post.url} title={post.frontmatter.title} description={post.frontmatter.description} pubDate={post.frontmatter.pubDate}></BlogPost>)}
+       {posts.map((post) => <BlogPost url={post.url} title={post.frontmatter.title} description={post.frontmatter.description} pubDate={post.frontmatter.pubDate} tags={post.frontmatter.tags}></BlogPost>)}
     </ul>
   </body>
 </html>
