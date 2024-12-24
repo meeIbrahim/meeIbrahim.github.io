@@ -1,5 +1,7 @@
 ---
+import BlogContainer from '../components/BlogContainer.astro';
 import BaseLayout from '../layouts/BaseLayout.astro';
+const allPosts = await Astro.glob('./posts/*.md');
 ---
 <BaseLayout>
 	<h2>Welcome to Write to Learn!👋</h2>

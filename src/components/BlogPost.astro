@@ -2,10 +2,27 @@
 const { class: className, title, url,description, pubDate, ...rest } = Astro.props;
 ---
 
-<li id="container"><a href={url}>{title}</a></li>
+<li id="container">
+    <a href={url}>
+    <span>{title}</span>
+    <div class="description">{description}</div>
+    <div class="date">{new Date(pubDate).toLocaleDateString('en-US', { day: 'numeric', month: 'long', year: 'numeric' })}</div>
+    </a>
+</li>
 
 <style>
-    a:link {
+
+    #container .description,
+    #container .date {
+        color: #1d1d1d;
+    }
+    #container .date {
+        font-size: smaller;
+    }
+    span {
+        font-size: larger;
+    }
+    a {
         text-decoration: none;
     }
     #container a {
@@ -22,7 +39,7 @@ const { class: className, title, url,description, pubDate, ...rest } = Astro.pro
         border: 1px solid #d8c9ba;
 
         /* Add space between the border and the content */
-        padding: 8px;
+        padding: 8px 21px;
 
         border-radius: 12px;
     }
