@@ -1,6 +1,44 @@
 ---
-const { title, url } = Astro.props;
+const { class: className, title, url,description, pubDate, ...rest } = Astro.props;
 ---
 
+<li id="container"><a href={url}>{title}</a></li>
 
-<li><a href={url}>{title}</a></li>
+<style>
+    a:link {
+        text-decoration: none;
+    }
+    #container a {
+        color: #00539F;
+    }
+    #container {
+        list-style-type: none;
+
+        /* Add empty space above the container (20% of the view height) */
+        margin-top: 5vh;
+        /* Change background color */
+        background-color: #d6d2d2c7;
+        /* Add border */
+        border: 1px solid #d8c9ba;
+
+        /* Add space between the border and the content */
+        padding: 8px;
+
+        border-radius: 12px;
+    }
+
+    #container:focus,
+    #container:hover {
+        background-color: #ede4d4;
+        scale: 1.1;
+    }
+    
+    :global(.dark) #container {
+        background-color: #d4d4d4dd;
+    }
+    :global(.dark) #container:focus,
+    :global(.dark) #container:hover {
+        background-color: #eaeaeaf5;
+        scale: 1.1;
+    }
+</style>
