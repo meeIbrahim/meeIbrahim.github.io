@@ -11,34 +11,3 @@ import Title from "./Title.astro";
     <Navigation class="nav-links" />
   </nav>
 </header>
-
-<style>
-  .header {
-    width: 100%;
-  }
-
-  .nav-container {
-    display: grid;
-    grid-template-columns: repeat(6, 1fr);
-  }
-
-  .hamburger {
-    justify-self: end;
-    grid-column: 3;
-  }
-  .title {
-    justify-self: start;
-    grid-column: 2 / span 3;
-    display: flex;
-    flex-wrap: wrap;
-    align-content: space-between;
-    gap: 1rem;
-  }
-
-  .nav-links {
-    justify-self: end;
-    grid-column: -3 /  span 2;
-  }
-
-
-</style>
