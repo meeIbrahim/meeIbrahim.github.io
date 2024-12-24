@@ -95,7 +95,7 @@ h1 {
 .hamburger {
   padding-right: 20px;
   cursor: pointer;
-  justify-self: center;
+  justify-self: start;
   grid-column: 6;
 }
 
