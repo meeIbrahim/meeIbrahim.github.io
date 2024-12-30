@@ -1,0 +1,35 @@
+---
+import type { MarkdownInstance } from "astro";
+import BaseLayout from "../../layouts/BaseLayout.astro";
+import BlogContainer from "../../components/BlogContainer.astro";
+
+const posts: MarkdownInstance<Record<string, any>>[] = 
+    await Astro.glob("../posts/*.md");
+const sortedPosts = posts.sort((a, b) => {
+    return (
+        new Date(b.frontmatter.pubDate).getTime() -
+        new Date(a.frontmatter.pubDate).getTime()
+    );
+});
+const pageSize = Number(import.meta.env.PAGE_SIZE);
+const page = {
+    data: sortedPosts.slice(0, pageSize),
+    start: 0,
+    end: pageSize,
+    size: pageSize,
+    total: sortedPosts.length,
+    currentPage: 1,
+    lastPage: Math.ceil(sortedPosts.length / pageSize),
+    url: {
+        current: '/blog',
+        prev: undefined,
+        next: sortedPosts.length > pageSize ? '/blog/2' : undefined
+    }
+};
+
+const pageTitle = "Blog Posts";
+---
+
+<BaseLayout pageTitle={pageTitle}>
+    <BlogContainer page={page} />
+</BaseLayout>

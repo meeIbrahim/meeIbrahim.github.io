@@ -1,37 +1,48 @@
 ---
+import type { GetStaticPaths, MarkdownInstance, Page } from "astro";
 import BaseLayout from "../../layouts/BaseLayout.astro";
-import BlogPost from "../../components/BlogPost.astro";
-import type { Props } from "astro/components/ViewTransitions.astro";
-import type { MarkdownInstance } from "astro";
 import BlogContainer from "../../components/BlogContainer.astro";
-export async function getStaticPaths() {
-    /*
-    A getStaticPaths function should always return a list of objects containing params
-     (what to call each page route) and optionally any props (data that you want to pass to those pages). 
-    */
+
+export const getStaticPaths = (async () => {
+    const pageSize = Number(import.meta.env.PAGE_SIZE);
     const allPosts: MarkdownInstance<Record<string, any>>[] =
         await Astro.glob("../posts/*.md");
     const uniqueTags = [
         ...new Set(allPosts.map((post) => post.frontmatter.tags).flat()),
     ];
-    return uniqueTags.map((tag) => {
-        const filteredPosts = allPosts.filter((post) =>
-            post.frontmatter.tags.includes(tag),
-        );
+    return uniqueTags.flatMap((tag) => {
+        const filteredPosts = allPosts
+            .filter((post) => post.frontmatter.tags.includes(tag))
+            .sort((a, b) => {
+                return new Date(b.frontmatter.pubDate).getTime() -
+                    new Date(a.frontmatter.pubDate).getTime();
+            });
+
+        const page = {
+            data: filteredPosts.slice(0, pageSize),
+            start: 0,
+            end: pageSize,
+            size: pageSize,
+            total: filteredPosts.length,
+            currentPage: 1,
+            lastPage: Math.ceil(filteredPosts.length / pageSize),
+            url: {
+                current: `/tags/${tag}`,
+                prev: undefined,
+                next: filteredPosts.length > pageSize ? `/tags/${tag}/2` : undefined,
+            },
+        };
         return {
             params: { tag },
-            props: { posts: filteredPosts },
+            props: { page }
         };
     });
-}
+});
 
-const { tag } = Astro.params as { tag: string };
-const { posts } = Astro.props as {
-    posts: MarkdownInstance<Record<string, any>>[];
-};
+const { tag } = Astro.params;
+const { page } = Astro.props;
 ---
 
-<BaseLayout pageTitle={tag}>
-    <p>Posts tagged with {tag}</p>
-    <BlogContainer posts={posts} />
+<BaseLayout pageTitle={`Posts tagged with "${tag}"`}>
+    <BlogContainer page={page} />
 </BaseLayout>

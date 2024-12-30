@@ -1,20 +1,32 @@
 ---
 import '../styles/global.css';
 import BlogPost from '../components/BlogPost.astro';
-import type { MarkdownInstance } from "astro";
-const { posts } = Astro.props as {
-    posts: MarkdownInstance<Record<string, any>>[];
+import Pagination from './Pagination.astro';
+import type { Page, MarkdownInstance } from "astro";
+
+const { page } = Astro.props as {
+    page: Page<MarkdownInstance<Record<string, any>>>;
 };
 ---
-<html lang="en">
+<section class="blog-container">
     <ul>
-       {posts.map((post) => <BlogPost url={post.url} title={post.frontmatter.title} description={post.frontmatter.description} pubDate={post.frontmatter.pubDate} tags={post.frontmatter.tags}></BlogPost>)}
+       {page.data.map((post) => <BlogPost url={post.url} title={post.frontmatter.title} description={post.frontmatter.description} pubDate={post.frontmatter.pubDate} tags={post.frontmatter.tags}></BlogPost>)}
     </ul>
-  </body>
-</html>
+    <Pagination page={page} />
+</section>
+
 <style>
+    .blog-container {
+        display: flex;
+        flex-direction: column;
+        gap: 2rem;
+        width: 100%;
+        min-width: 22vw;
+        margin: 0 auto;
+    }
     ul {
-        ;
+        list-style: none;
+        padding: 0;
     }
     li {
         margin-bottom: 1rem;
