@@ -3,7 +3,7 @@ import type { GetStaticPaths, MarkdownInstance, Page } from "astro";
 import BaseLayout from "../../../layouts/BaseLayout.astro";
 import BlogContainer from "../../../components/BlogContainer.astro";
 export const getStaticPaths = (async ({ paginate }) => {
-    const pageSize = Number(import.meta.env.PAGE_SIZE);
+    const pageSize = Number(import.meta.env.PAGE_SIZE) || 10;
     const allPosts: MarkdownInstance<Record<string, any>>[] =
         await Astro.glob("../../posts/*.md");
     const uniqueTags = [

@@ -11,7 +11,7 @@ const sortedPosts = posts.sort((a, b) => {
         new Date(a.frontmatter.pubDate).getTime()
     );
 });
-const pageSize = Number(import.meta.env.PAGE_SIZE);
+const pageSize = Number(import.meta.env.PAGE_SIZE) || 10;
 const page = {
     data: sortedPosts.slice(0, pageSize),
     start: 0,
