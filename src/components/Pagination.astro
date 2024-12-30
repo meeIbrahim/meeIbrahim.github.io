@@ -1,0 +1,81 @@
+---
+const { page } = Astro.props;
+---
+
+<nav aria-label="Blog pages">
+    <ul class="pagination">
+        {
+            page.url.prev && (
+                <li>
+                    <a class="hover" href={page.url.prev} aria-label="Previous page">
+                        ←
+                    </a>
+                </li>
+            )
+        }
+        {
+            (
+                <li>
+                    <a class="active">
+                        {page.currentPage} of {page.lastPage}
+                    </a>
+                </li>
+            )
+        }
+        {
+            page.url.next && (
+                <li>
+                    <a class="hover" href={page.url.next} aria-label="Next page">
+                        →
+                    </a>
+                </li>
+            )
+        }
+    </ul>
+</nav>
+
+<style>
+    .pagination {
+        display: flex;
+        gap: 1rem;
+        list-style: none;
+        padding: 2rem 0;
+        justify-content: center;
+        flex-wrap: wrap;
+        width: 100%;
+    }
+
+    .pagination a {
+        text-decoration: none;
+        padding: 0.5rem 1rem;
+        border-radius: 4px;
+        background-color: #d6d2d2c7;
+        color: #00539f;
+    }
+    .active {
+        cursor: default;
+    }
+
+    .pagination a.hover:hover {
+        background-color: #ede4d4;
+    }
+
+    .pagination a.active {
+        background-color: #00539f;
+        color: white;
+    }
+
+    :global(.dark) .pagination a {
+        color: #d4d4d4dd;
+        background-color: #666;
+    }
+
+    :global(.dark) .pagination a.hover:hover {
+        background-color: #939292f5;
+    }
+
+    .ellipsis {
+        padding: 0.5rem 1rem;
+        color: #666;
+    }
+</style>

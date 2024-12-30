@@ -1,0 +1,31 @@
+---
+import type { GetStaticPaths, MarkdownInstance } from "astro";
+import BaseLayout from "../../layouts/BaseLayout.astro";
+import BlogContainer from "../../components/BlogContainer.astro";
+
+export const getStaticPaths = (async ({ paginate }) => {
+    const pageSize = Number(import.meta.env.PAGE_SIZE) || 10;
+    //TODO: Handle Empty Page Case
+    let posts: MarkdownInstance<Record<string, any>>[] = [];
+    try {
+        posts = await Astro.glob("../posts/*.md");
+    } catch (error) {
+        console.error("Error loading posts:", error);
+        posts = [];
+    }
+    const sortedPosts = posts.sort((a, b) => {
+        return (
+            new Date(b.frontmatter.pubDate).getTime() -
+            new Date(a.frontmatter.pubDate).getTime()
+        );
+    });
+    return paginate(sortedPosts, { pageSize: pageSize });
+}) satisfies GetStaticPaths;
+
+const pageTitle = "Blog Posts";
+const { page } = Astro.props;
+---
+
+<BaseLayout pageTitle={pageTitle}>
+    <BlogContainer page={page} />
+</BaseLayout>

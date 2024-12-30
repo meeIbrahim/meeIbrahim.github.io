@@ -19,7 +19,6 @@ html {
   font-family: sans-serif;
   line-height: 1.5;
   color: #1e1e1e;
-
 }
 
 body {
@@ -34,8 +33,6 @@ body {
   margin: 0 auto;
   /* margin-left auto and margin-right auto */
 }
-
-
 
 * {
   box-sizing: border-box;
@@ -56,14 +53,11 @@ h1 {
 
 /* nav styles */
 
-
 .header {
   width: 100%;
 }
 
-
 .nav-links {
-
   width: 100%;
   top: 5rem;
   left: 48px;
@@ -115,9 +109,7 @@ h1 {
   /* Add background color to make lines visible */
 }
 
-
 @media screen and (min-width: 906px) {
-
   body {
     width: 100%;
     display: grid;
@@ -128,11 +120,11 @@ h1 {
       ". content ."
       ". footer .";
   }
-  
+
   .header {
     grid-area: header;
   }
-  
+
   .content {
     grid-area: content;
   }
