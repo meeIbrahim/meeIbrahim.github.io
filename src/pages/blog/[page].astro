@@ -5,9 +5,14 @@ import BlogContainer from "../../components/BlogContainer.astro";
 
 export const getStaticPaths = (async ({ paginate }) => {
     const pageSize = Number(import.meta.env.PAGE_SIZE) || 10;
-    console.log(pageSize)
-    const posts: MarkdownInstance<Record<string, any>>[] = 
-        await Astro.glob("../posts/*.md");
+    //TODO: Handle Empty Page Case
+    let posts: MarkdownInstance<Record<string, any>>[] = [];
+    try {
+        posts = await Astro.glob("../posts/*.md");
+    } catch (error) {
+        console.error("Error loading posts:", error);
+        posts = [];
+    }
     const sortedPosts = posts.sort((a, b) => {
         return (
             new Date(b.frontmatter.pubDate).getTime() -

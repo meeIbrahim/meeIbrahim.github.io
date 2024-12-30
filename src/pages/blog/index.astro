@@ -3,8 +3,14 @@ import type { MarkdownInstance } from "astro";
 import BaseLayout from "../../layouts/BaseLayout.astro";
 import BlogContainer from "../../components/BlogContainer.astro";
 
-const posts: MarkdownInstance<Record<string, any>>[] = 
-    await Astro.glob("../posts/*.md");
+//TODO: Handle Empty Page Case
+let posts: MarkdownInstance<Record<string, any>>[] = [];
+try {
+    posts = await Astro.glob("../posts/*.md");
+} catch (error) {
+    console.error("Error loading posts:", error);
+    posts = [];
+}
 const sortedPosts = posts.sort((a, b) => {
     return (
         new Date(b.frontmatter.pubDate).getTime() -
@@ -21,10 +27,10 @@ const page = {
     currentPage: 1,
     lastPage: Math.ceil(sortedPosts.length / pageSize),
     url: {
-        current: '/blog',
+        current: "/blog",
         prev: undefined,
-        next: sortedPosts.length > pageSize ? '/blog/2' : undefined
-    }
+        next: sortedPosts.length > pageSize ? "/blog/2" : undefined,
+    },
 };
 
 const pageTitle = "Blog Posts";

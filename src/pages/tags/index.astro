@@ -1,8 +1,15 @@
 ---
 import type { MarkdownInstance } from 'astro';
 import BaseLayout from '../../layouts/BaseLayout.astro';
-
-const posts: MarkdownInstance<Record<string, any>>[]= await Astro.glob('../posts/*.md');
+    
+//TODO: Handle Empty Page Case
+let posts: MarkdownInstance<Record<string, any>>[] = [];
+try {
+  posts = await Astro.glob('../posts/*.md');
+} catch (error) {
+  console.error('Error loading posts:', error);
+  posts = [];
+}
 const tags = [...new Set(posts.flatMap(post => post.frontmatter.tags))];
 const pageTitle = "Tag Index"
 ---
