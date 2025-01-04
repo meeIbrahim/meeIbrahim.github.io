@@ -8,7 +8,7 @@ tags: ["meta"]
 
 With this little post, I have officially begun the journey of **Write to Learn**. As much as I wanted to start this off on the 1st of January 2025, I couldn't decide on what to post first. Eventually, I settled on sharing my candid thoughts and a bit about the tech stack for this site.
 
-## Why Share My Learning and Journey
+## Why Share My Learning Journey
 
 The idea to create a blog came from a must-read book: [Effective Engineer by Edmond Lau](https://www.effectiveengineer.com/). The book talks about optimising for learning and suggests "**Write to teach**" to gain a deeper understanding of ideas. The idea resonated with me a lot since I love learning new things but always feared that I don't have enough insight and understanding. Writing has always been a powerful tool for me—a method my parents encouraged. Writing down concepts made them easier to grasp and offered an opportunity for deliberate and mindful reflection.
 
