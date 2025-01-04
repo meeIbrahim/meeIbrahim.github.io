@@ -6,7 +6,7 @@ pubDate: "2025-01-04"
 tags: ["meta"]
 ---
 
-With this short post, I have officially begun the journey of **Write to Learn**; a personal blog-site where I can share my learning. As much as I wanted to start this off on the 1st of January 2025, I couldn't decide on what to post first. Eventually, I settled on sharing my candid thoughts and a bit about the tech stack for this site.
+With this short post, I have officially begun the journey of **Write to Learn**; a personal blog-site where I can share my learning journey. As much as I wanted to start this off on the 1st of January 2025, I couldn't decide on what to post first. Eventually, I settled on sharing my candid thoughts and a bit about the tech stack for this site.
 
 ## Why Share My Learning Journey
 
