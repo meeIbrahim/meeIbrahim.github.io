@@ -6,7 +6,7 @@ pubDate: "2025-01-04"
 tags: ["meta"]
 ---
 
-With this little post, I have officially begun the journey of **Write to Learn**. As much as I wanted to start this off on the 1st of January 2025, I couldn't decide on what to post first. Eventually, I settled on sharing my candid thoughts and a bit about the tech stack for this site.
+With this short post, I have officially begun the journey of **Write to Learn**; a personal blog-site where I can share my learning. As much as I wanted to start this off on the 1st of January 2025, I couldn't decide on what to post first. Eventually, I settled on sharing my candid thoughts and a bit about the tech stack for this site.
 
 ## Why Share My Learning Journey
 
@@ -23,5 +23,4 @@ I am hosting the blog site on GitHub Pages for now and will keep it here for the
 I will be using GitHub issues to track features and bugs for this project, and I would welcome any feedback or bugs in the form of a [new issue](https://github.com/meeIbrahim/meeIbrahim.github.io/issues) on GitHub.
 
 <br>
-
 That's it for today. See you in the next post! 👋
