@@ -7,6 +7,7 @@
     "start": "astro dev",
     "lint": "eslint .",
     "prettier": "prettier --check .",
+    "prettier-fix": "prettier --write .",
     "build": "npm run lint && npm run prettier && astro check && astro build",
     "preview": "astro preview",
     "astro": "astro"

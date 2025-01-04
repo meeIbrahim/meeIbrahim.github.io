@@ -6,6 +6,8 @@ const {
     pubDate,
     tags,
 } = Astro.props;
+// if empty or null, add "untagged" tag
+const normalizedTags = tags && tags.length > 0 ? tags : ["untagged"];
 ---
 
 <li id="container">
@@ -23,7 +25,7 @@ const {
         </div>
         <ul class="tags">
             {
-                tags.flatMap((tag: string) => (
+                normalizedTags.flatMap((tag: string) => (
                     <li>
                         <a href={`/tags/${tag}`}>{tag}</a>
                     </li>

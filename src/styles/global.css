@@ -3,6 +3,10 @@ html.dark {
   color: #dadadb;
 }
 
+.dark a:visited {
+  color: #6767d4;
+}
+
 .dark .nav-links a {
   color: #dadadb;
 }
