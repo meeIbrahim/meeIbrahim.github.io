@@ -1,7 +1,7 @@
 ---
 layout: ../../layouts/MarkdownPostLayout.astro
 title: "New Beginnings"
-description: "Starting the journey of documenting my growth and learnings as an Engineer"
+description: "Starting the journey of documenting my learning and growth as an Engineer"
 pubDate: "2025-01-04"
 tags: ["meta"]
 ---
@@ -10,7 +10,7 @@ With this short post, I have officially begun the journey of **Write to Learn**;
 
 ## Why Share My Learning Journey
 
-The idea to create a blog came from a must-read book: [Effective Engineer by Edmond Lau](https://www.effectiveengineer.com/). The book talks about optimising for learning and suggests "**Write to teach**" to gain a deeper understanding of ideas. The idea resonated with me a lot since I love learning new things but always feared that I don't have enough insight and understanding. Writing has always been a powerful tool for me—a method my parents encouraged. Writing down concepts made them easier to grasp and offered an opportunity for deliberate and mindful reflection.
+The idea to create a blog came from a must-read book: [Effective Engineer by Edmond Lau](https://www.effectiveengineer.com/). The book talks about optimising for learning and suggests "**Write to teach**" to gain a deeper understanding of ideas. The idea resonated with me a lot since I love learning new things but always feared that I didn't have enough insight or understanding. Writing has always been a powerful tool for me—a method my parents encouraged. Writing down concepts made them easier to grasp and offered an opportunity for deliberate and mindful reflection.
 
 I decided on "**Write To Learn**" as the title and coded away for the past few days until I had a working website.
 

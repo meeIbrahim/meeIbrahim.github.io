@@ -39,7 +39,7 @@ export const getStaticPaths = async () => {
                 prev: undefined,
                 next:
                     filteredPosts.length > pageSize
-                        ? `/tags/${tag}/2`
+                        ? `/${tag}/2`
                         : undefined,
             },
         };

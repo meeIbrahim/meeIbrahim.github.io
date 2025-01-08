@@ -1,7 +1,7 @@
 ---
 import type { GetStaticPaths, MarkdownInstance, Page } from "astro";
-import BaseLayout from "../../../layouts/BaseLayout.astro";
-import BlogContainer from "../../../components/BlogContainer.astro";
+import BaseLayout from "../../layouts/BaseLayout.astro";
+import BlogContainer from "../../components/BlogContainer.astro";
 export const getStaticPaths = (async ({ paginate }) => {
     const pageSize = Number(import.meta.env.PAGE_SIZE) || 10;
     //TODO: Handle Empty Page Case
